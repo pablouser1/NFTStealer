@@ -19,8 +19,10 @@ class Stealer:
     def __init__(self):
         options = Options()
         options.headless = True
-        self.driver = webdriver.Firefox(firefox_binary=getenv('FIREFOX_BIN', '/usr/bin/firefox'), options=options)
-    
+        self.driver = webdriver.Firefox(firefox_binary=getenv('FIREFOX_BIN', None),
+            executable_path=getenv('GECKODRIVER_PATH', None),
+            options=options)
+
     def randomLink(self)-> str:
         print("Loading assets...")
         link = ""
@@ -56,6 +58,6 @@ class Stealer:
             print("Couldn't load page")
         finally:
             return nft
-    
+
     def cleanup(self):
         self.driver.close()

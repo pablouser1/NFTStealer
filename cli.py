@@ -12,3 +12,5 @@ if __name__ == '__main__':
             filename = f'./nfts/{nft.id}.png'
             with open(filename, 'wb') as f:
                 f.write(nft.data)
+
+    stealer.cleanup()
