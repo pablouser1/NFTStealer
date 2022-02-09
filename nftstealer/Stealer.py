@@ -1,4 +1,5 @@
 import json
+from os import getenv
 from random import randint
 from selenium import webdriver
 from selenium.webdriver.firefox.options import Options
@@ -18,7 +19,7 @@ class Stealer:
     def __init__(self):
         options = Options()
         options.headless = True
-        self.driver = webdriver.Firefox(firefox_binary="/usr/bin/firefox-developer-edition", options=options)
+        self.driver = webdriver.Firefox(firefox_binary=getenv('FIREFOX_BIN', '/usr/bin/firefox'), options=options)
     
     def randomLink(self)-> str:
         print("Loading assets...")
