@@ -40,3 +40,5 @@ if __name__ == '__main__':
         if nft.id:
             # Send to twitter
             twitter.send(nft)
+    
+    stealer.cleanup()
