@@ -3,7 +3,7 @@ from os import getenv
 from random import randint
 from selenium import webdriver
 from selenium.webdriver.firefox.options import Options
-from selenium.webdriver.firefox.firefox_profile import FirefoxProfile
+from selenium.webdriver.firefox.webdriver import DEFAULT_EXECUTABLE_PATH
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
@@ -20,7 +20,7 @@ class Stealer:
         options = Options()
         options.headless = True
         self.driver = webdriver.Firefox(firefox_binary=getenv('FIREFOX_BIN', None),
-            executable_path=getenv('GECKODRIVER_PATH', None),
+            executable_path=getenv('GECKODRIVER_PATH', DEFAULT_EXECUTABLE_PATH),
             options=options)
 
     def randomLink(self)-> str:
