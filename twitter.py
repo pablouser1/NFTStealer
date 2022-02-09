@@ -1,6 +1,5 @@
 from os import getenv, environ
 from dotenv import load_dotenv
-from time import sleep
 from nftstealer.Stealer import Stealer
 from nftstealer.Twitter import Twitter
 
