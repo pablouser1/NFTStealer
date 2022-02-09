@@ -1,4 +1,3 @@
-import schedule
 from os import getenv, environ
 from dotenv import load_dotenv
 from time import sleep
@@ -36,7 +35,9 @@ if __name__ == '__main__':
 
     stealer = Stealer()
     twitter = Twitter(CONSUMER_KEY, CONSUMER_KEY_SECRET, ACCESS_TOKEN, ACCESS_TOKEN_SECRET)
-    schedule.every().day.at("16:00").do(postNft, stealer, twitter)
-    while True:
-        schedule.run_pending()
-        time.sleep(1)
+    link = stealer.randomLink()
+    if link:
+        nft = stealer.getNft(link)
+        if nft.id:
+            # Send to twitter
+            twitter.send(nft)
