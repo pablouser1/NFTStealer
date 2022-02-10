@@ -3,7 +3,7 @@ from dotenv import load_dotenv
 from nftstealer.Stealer import Stealer
 from nftstealer.Twitter import Twitter
 
-def checkEnv(requiredEnv):
+def checkEnv(requiredEnv: list):
     currentEnv = environ
     for env in requiredEnv:
         if not env in environ:
@@ -40,5 +40,5 @@ if __name__ == '__main__':
         if nft.id:
             # Send to twitter
             twitter.send(nft)
-    
+
     stealer.cleanup()
